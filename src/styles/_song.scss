@@ -1,30 +1,18 @@
-.player {
-  min-height: 20vh;
+.song-container {
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: space-evenly;
-}
-.time-control {
-  width: 50%;
-  display: flex;
-  input {
-    width: 100%;
-    padding: 1rem 2rem;
+  img {
+    margin: 0.3rem;
+    width: 20%;
+    border-radius: 50%;
   }
-  p {
-    font-size: 1.7rem;
-    text-align: center;
-    padding: 1rem;
+  h2 {
+    padding: 3rem 1rem 1rem 1rem;
   }
-}
-.play-control {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  width: 30%;
-  svg {
-    cursor: pointer;
+  h3 {
+    font-size: 1rem;
   }
 }

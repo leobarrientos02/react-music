@@ -14,9 +14,9 @@ const Player = () => {
         <p>End Time</p>
     </div>
     <div className="play-control">
-        <FontAwesomeIcon className="skip-back" size="3x" icon={faAngleDoubleLeft} />
-        <FontAwesomeIcon className="play" size="3x" icon={faPlay} />
-        <FontAwesomeIcon className="skip-forward" size="3x" icon={faAngleDoubleRight} />
+        <FontAwesomeIcon className="skip-back" size="2x" icon={faAngleDoubleLeft} />
+        <FontAwesomeIcon className="play" size="2x" icon={faPlay} />
+        <FontAwesomeIcon className="skip-forward" size="2x" icon={faAngleDoubleRight} />
     </div>
     </div>
   )
