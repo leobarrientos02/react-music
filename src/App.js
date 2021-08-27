@@ -18,10 +18,17 @@ function App() {
   // Grabs the first song from the arrray of object
   const [currentSong, setCurrentSong] = useState(songs[0]);
 
+  // Determine if the song is playing, if not add pause button
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
     <div className="App">
       <Song currentSong={currentSong} />
-      <Player currentSong={currentSong} />
+      <Player
+        isPlaying={isPlaying}
+        setIsPlaying={setIsPlaying}
+        currentSong={currentSong}
+      />
     </div>
   );
 }
