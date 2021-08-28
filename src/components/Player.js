@@ -3,7 +3,7 @@ import React, {useRef, useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 //Importing the logos
-import { faPlay, faAngleDoubleLeft, faAngleDoubleRight} from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faAngleDoubleLeft, faAngleDoubleRight, faPause} from "@fortawesome/free-solid-svg-icons";
 
 const Player = ({currentSong,isPlaying, setIsPlaying}) => {
   // REF
@@ -71,7 +71,7 @@ const Player = ({currentSong,isPlaying, setIsPlaying}) => {
           onClick={playSongHandler}
           className="play" 
           size="2x" 
-          icon={faPlay} 
+          icon={isPlaying ? faPause : faPlay } 
         />
         <FontAwesomeIcon 
           className="skip-forward"

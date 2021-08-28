@@ -10,6 +10,9 @@ import Song from "./components/Song";
 //Import Util
 import data from "./util";
 
+//Import Library
+import Library from "./components/Library";
+
 function App() {
   // State
   // Use to return the array of objects from util.js
@@ -29,6 +32,7 @@ function App() {
         setIsPlaying={setIsPlaying}
         currentSong={currentSong}
       />
+      <Library songs={songs} />
     </div>
   );
 }
