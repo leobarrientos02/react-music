@@ -94,9 +94,9 @@ h4 {
 }
 
 .song-container img {
-  margin: 0.3rem;
-  width: 20%;
-  border-radius: 50%;
+  width: 16rem;
+  -webkit-box-shadow: 2px 2px 50px #777676;
+          box-shadow: 2px 2px 50px #777676;
   text-align: center;
 }
 
@@ -118,6 +118,10 @@ h4 {
   -webkit-box-shadow: 2px 2px 50px #cccccc;
           box-shadow: 2px 2px 50px #cccccc;
   overflow: scroll;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .library h2 {
@@ -185,5 +189,38 @@ h4 {
 
 .selected img {
   border: 1px solid white;
+}
+
+.active-library {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  opacity: 1;
+}
+
+nav {
+  min-height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border: 2px solid #414141;
+  padding: 0.5rem;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+nav button:hover {
+  background: #414141;
+  color: white;
 }
 /*# sourceMappingURL=app.css.map */

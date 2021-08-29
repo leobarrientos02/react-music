@@ -8,6 +8,8 @@ import Song from "./components/Song";
 import data from "./util";
 //Import Library
 import Library from "./components/Library";
+//import nav
+import Nav from "./components/Nav";
 
 function App() {
   // State
@@ -20,8 +22,11 @@ function App() {
   // Determine if the song is playing, if not add pause button
   const [isPlaying, setIsPlaying] = useState(false);
 
+  //State for library
+  const [libraryStatus, setLibraryStatus] = useState(false);
   return (
     <div className="App">
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong} />
       <Player
         isPlaying={isPlaying}
@@ -33,6 +38,7 @@ function App() {
         songs={songs}
         setCurrentSong={setCurrentSong}
         setSongs={setSongs}
+        libraryStatus={libraryStatus}
       />
     </div>
   );
