@@ -1,15 +1,11 @@
 import React, { useState } from "react";
-
 //Import styles
 import "./styles/app.scss";
-
 //Adding Components
 import Player from "./components/Player";
 import Song from "./components/Song";
-
 //Import Util
 import data from "./util";
-
 //Import Library
 import Library from "./components/Library";
 
@@ -33,7 +29,11 @@ function App() {
         currentSong={currentSong}
         setCurrentSong={setCurrentSong}
       />
-      <Library songs={songs} setCurrentSong={setCurrentSong} />
+      <Library
+        songs={songs}
+        setCurrentSong={setCurrentSong}
+        setSongs={setSongs}
+      />
     </div>
   );
 }

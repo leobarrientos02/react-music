@@ -47,3 +47,13 @@
   border-radius: 20px;
   border: transparent;
 }
+.selected {
+  background: rgb(99, 113, 156);
+  h3,
+  h4 {
+    color: white;
+  }
+  img {
+    border: 1px solid white;
+  }
+}

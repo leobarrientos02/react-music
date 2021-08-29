@@ -173,4 +173,17 @@ h4 {
   border-radius: 20px;
   border: transparent;
 }
+
+.selected {
+  background: #63719c;
+}
+
+.selected h3,
+.selected h4 {
+  color: white;
+}
+
+.selected img {
+  border: 1px solid white;
+}
 /*# sourceMappingURL=app.css.map */
