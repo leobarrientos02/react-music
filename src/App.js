@@ -4,8 +4,8 @@ import "./styles/app.scss";
 //Adding Components
 import Player from "./components/Player";
 import Song from "./components/Song";
-//Import Util
-import data from "./util";
+//Import Data
+import data from "./data";
 //Import Library
 import Library from "./components/Library";
 //import nav
