@@ -60,7 +60,13 @@ const Player = ({
     const duration = e.target.duration;
     //console.log(current);
     //console.log(duration);
-    setSongInfo({ ...songInfo, currentTime: current, duration });
+
+    // Calculate Percentage
+    const roundedCurrent = Math.round(current);
+    const roundedDuration = Math.round(duration);
+    const animation = Math.round((roundedCurrent / roundedDuration)*100);
+    //console.log(animation);
+    setSongInfo({ ...songInfo, currentTime: current, duration, animationPercentage: animation, });
   };
   // getTime is used to the time duration of the song
   const getTime = (time) => {
@@ -80,6 +86,7 @@ const Player = ({
   const [songInfo, setSongInfo] = useState({
     currentTime: 0,
     duration: 0,
+    animationPercentage: 0,
   });
 
   // Function to skip through tracks
@@ -91,17 +98,24 @@ const Player = ({
       setCurrentSong(songs[(currentIndex - 1 + songs.length) % songs.length]);
     }
   };
+  //Add styles
+  const trackAnim = {
+    transform: `translateX(${songInfo.animationPercentage}%)`
+  }
   return (
     <div className="player">
       <div className="time-control">
         <p>{getTime(songInfo.currentTime)}</p>
-        <input
-          min={0}
-          max={songInfo.duration || 0}
-          value={songInfo.currentTime}
-          type="range"
-          onChange={dragHandler}
-        />
+        <div style={{background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[1]})`}} className="track">
+          <input
+            min={0}
+            max={songInfo.duration || 0}
+            value={songInfo.currentTime}
+            type="range"
+            onChange={dragHandler}
+          />
+          <div style={trackAnim} className="animate-track"></div>
+        </div>
         <p>{songInfo.duration ? getTime(songInfo.duration) : "0:00"}</p>
       </div>
       <div className="play-control">
