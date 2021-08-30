@@ -90,17 +90,23 @@ const Player = ({
   });
 
   // Function to skip through tracks
-  const skipTrackHandler = (direction) => {
+  const skipTrackHandler = async (direction) => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     if (direction === "skip-forward") {
-      setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+      await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
     } else {
-      setCurrentSong(songs[(currentIndex - 1 + songs.length) % songs.length]);
+      await setCurrentSong(songs[(currentIndex - 1 + songs.length) % songs.length]);
     }
   };
   //Add styles
   const trackAnim = {
     transform: `translateX(${songInfo.animationPercentage}%)`
+  }
+  const songEndHandler = async () =>{
+    let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+      await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+      await setCurrentSong(songs[(currentIndex - 1 + songs.length) % songs.length]);
+      audioRef.current.play();
   }
   return (
     <div className="player">
@@ -144,6 +150,7 @@ const Player = ({
         onLoadedMetadata={timeUpdateHandler}
         ref={audioRef}
         src={currentSong.audio}
+        onEnded={songEndHandler}
       ></audio>
     </div>
   );
