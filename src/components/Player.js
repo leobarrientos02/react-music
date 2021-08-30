@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 // Importing font awsome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //Importing the logos
@@ -15,9 +15,28 @@ const Player = ({
   setIsPlaying,
   songs,
   setCurrentSong,
+  setSongs,
 }) => {
   // REF
   const audioRef = useRef(null);
+
+  //Use Effect
+  useEffect(() => {
+    const newSongs = songs.map((song) => {
+      if (song.id === currentSong.id) {
+        return {
+          ...song,
+          active: true,
+        };
+      } else {
+        return {
+          ...song,
+          active: false,
+        };
+      }
+    });
+    setSongs(newSongs);
+  }, [currentSong]);
 
   //Event Handlers
   const playSongHandler = () => {
