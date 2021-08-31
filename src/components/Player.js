@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState} from "react";
 // Importing font awsome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //Importing the logos
@@ -20,10 +20,9 @@ const Player = ({
   // REF
   const audioRef = useRef(null);
 
-  //Use Effect
-  useEffect(() => {
+  const activeLibraryHandler = (nextPrev) =>{
     const newSongs = songs.map((song) => {
-      if (song.id === currentSong.id) {
+      if (song.id === nextPrev.id) {
         return {
           ...song,
           active: true,
@@ -36,7 +35,7 @@ const Player = ({
       }
     });
     setSongs(newSongs);
-  }, [currentSong]);
+  }
 
   //Event Handlers
   const playSongHandler = () => {
@@ -94,8 +93,10 @@ const Player = ({
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     if (direction === "skip-forward") {
       await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+      activeLibraryHandler(songs[(currentIndex + 1) % songs.length]);
     } else {
       await setCurrentSong(songs[(currentIndex - 1 + songs.length) % songs.length]);
+      activeLibraryHandler(songs[(currentIndex - 1 + songs.length) % songs.length]);
     }
   };
   //Add styles
