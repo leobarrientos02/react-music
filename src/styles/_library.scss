@@ -50,6 +50,17 @@
   border-radius: 20px;
   border: transparent;
 }
+*::-moz-scrollbar {
+  width: 5px;
+}
+*::-moz-scrollbar-track {
+  background: transparent;
+}
+*::-moz-scrollbar-thumb {
+  background: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}
 .selected {
   background: rgb(99, 113, 156);
   h3,
